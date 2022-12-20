@@ -1,0 +1,294 @@
+@import "/src/cmn-scss/colors.scss";
+@import "/src/cmn-scss/media.scss";
+@import "/src/cmn-scss/mixin.scss";
+.slider_section{
+  position: relative;
+  padding: 0 45px;
+}
+
+.navbar {
+      position: sticky;
+      width: 100%;
+      top: 60px;
+      z-index: 110;
+      transition: all 0.2s;
+      background-color: color(pure-white);
+      padding: 10px 45px;
+      .navbar-brand {
+        padding: 0;
+        img {
+          height: 50px;
+          width: 150px;
+          @include mobile-view {
+            width: 120px;
+          }
+        }
+      }
+      .navbar-toggler {
+        z-index: 9;
+        box-shadow: none;
+        span {
+          position: relative;
+          width: 20px;
+          height: 2px;
+          background: color(primary-color);
+          transition: all 0.2s;
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 2px;
+            background: color(primary-color);
+            transition: all 0.5s;
+          }
+          &::after {
+            top: 5px;
+          }
+          &::before {
+            bottom: 5px;
+          }
+        }
+        &[aria-expanded="true"] {
+          position: absolute;
+          right: 42px;
+          top: -20px;
+          border: 1px solid color(pure-black) !important;
+          padding: 0.4em;
+          border-radius: 100%;
+          @include tab-view {
+            top: -55px;
+          }
+          span {
+            background: none !important;
+            &::before {
+              transform: rotate(-45deg);
+              background: color(pure-black) !important;
+              bottom: 0;
+            }
+            &::after {
+              transform: rotate(45deg);
+              background: color(pure-black) !important;
+              top: 0;
+            }
+          }
+        }
+        &:focus {
+          box-shadow: none;
+        }
+      }
+  
+      .navbar-collapse {
+        @include ipad-view {
+          position: fixed;
+          right: -110%;
+          top: 0;
+          width: 100vw;
+          min-height: 100vh;
+          transition: all 0.3s;
+          overflow-y: auto;
+          overflow-x: hidden;
+          background: color(primary-color);
+          padding: 0 1.5em 1.5em;
+          height: 100%;
+          &.show {
+            right: 0;
+          }
+          @include mobile-view{
+            padding: 0;
+          }
+  
+        }
+  
+        .navbar-nav {
+          @include only-desktop {
+            width: 100%;
+            // justify-content: flex-end;
+            align-items: center;
+            li {
+              position: relative;
+              a {
+                color: color(pure-black);
+                padding: 5px 25px 5px 15px;
+                font-size: 14px;
+                font-weight: 500;
+                text-transform: capitalize;
+                &.dropdown-toggle {
+                  &::after {
+                    content: "\f078";
+                    font-family: FontAwesome;
+                    position: absolute;
+                    right: 0%;
+                    top: 5px;
+                    border: 0;
+                    font-size: 16px;
+                    transition: 0.2s all;
+                  }
+                }
+                &:hover {
+                  color: color(third-color);
+                }
+              }
+              &:first-child{
+                a{
+                  padding-left: 0;
+                }
+              }
+              ul {
+                width: 200px;
+                height: auto;
+                li {
+                  height: auto;
+                  border-bottom: 1px solid color(menu-border);
+                  &:last-child {
+                    border-bottom: 0;
+                  }
+                  a {
+                    white-space: inherit;
+                    color: color(dark-gray);
+                    padding: 10px 25px 10px 20px;
+                    text-transform: capitalize;
+                    &.dropdown-toggle {
+                      &::after {
+                        right: 3%;
+                        top: 7px;
+                        transform: rotate(-90deg);
+                      }
+                    }
+                    &:hover {
+                      background-color: color(primary-color);
+                      color: color(third-color);
+                    }
+                  }
+                  ul {
+                    top: -2%;
+                    left: 100%;
+                  }
+                }
+              }
+              .cmn-btn {
+                @include buttonPrimary;
+                margin-left: 10px;
+                padding: 4px 15px;
+                line-height: 30px;
+                color: color(primary-color) !important;
+              }
+              &:hover {
+                > ul {
+                  display: inline-block;
+                }
+              }
+            }
+            .menu_toggle_btn {
+              display: none;
+            }
+          }
+          @include ipad-view {
+        
+            li {
+             
+              border-top: 1px solid color(menu-border);
+              &:last-child {
+                border-bottom: 1px solid color(menu-border);
+              }
+              .menu_toggle_btn {
+                display: inline-block;
+                position: absolute;
+                top: 20px;
+                border-radius: 50%;
+                background-size: cover;
+                right: 20px;
+                font-size: 22px;
+                background: transparent;
+                font-weight: 800;
+                border: 0;
+                @include mobile-view {
+                  right: 10px;
+                }
+              }
+              a {
+                width: 90%;
+                font-size: 24px;
+                padding: 20px 0 20px 10px ;
+                color: color(pure-orange);
+                font-weight: 700;
+                position: relative;
+                transition: 0.3s all;
+                &:hover {
+                  background-color: transparent;
+                  color: color(pure-orange);
+                }
+               
+                @include tab-view {
+                  font-size: 20px;
+                  font-weight: 600;
+                  color: color(dark-gray);
+                  &:hover {
+                    color: color(primary-color);
+                  }
+                }
+                @include mobile-view{
+                  width: 85%;
+                }
+              }
+            }
+            margin-top: 5rem;
+            .nav-item >{
+              a{
+                 &::after {
+                  border: 0;
+                  background: color(menu-border);
+                  width: 1px;
+                  transition: all 0.3s;
+                  position: absolute;
+                  content: "";
+                  height: 80%;
+                  right: 0;
+                  top: 10%;
+                  @include mobile-view {
+                    right: 10px;
+                   
+                  }
+                }
+              }
+        
+            }
+            ul {
+              border: 0;
+              padding: 0;
+              list-style: none;
+  
+              @include mobile-view {
+                border-left: 5px solid color(menu-border);
+                border-radius: 0;
+              }
+              li {
+                border-top: 1px solid color(menu-border);
+                padding-left: 15px;
+                &:last-child {
+                  border-bottom: 0;
+                }              
+                @include mobile-view{
+                  padding-left: 0;
+                }
+                a {
+                  font-size: 20px;
+                  font-weight: 500;
+                  color: color(dark-gray);
+                  &:hover {
+                    text-decoration: underline;
+                    color: color(dark-gray);
+                  }
+                  
+                  @include tab-view {
+                    font-size: 18px;
+                    padding: 15px 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }

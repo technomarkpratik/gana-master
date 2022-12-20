@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9">
+
+  <ngx-slick-carousel class="carousel homebanner" #slickModal="slick-carousel" [config]="slideConfigbanner" >
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <div class="box">
+        <img src="" alt="">
+      <img src="{{ slide.img }}" alt="" width="100%"  class="song_image"/>
+      
+      </div>
+    </div>
+  </ngx-slick-carousel>
+  <h2 class="song_types_title">Trending Songs</h2>
+  <ngx-slick-carousel class="carousel main_sub_slider" #slickModal="slick-carousel" [config]="slideConfig" >
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <div class="box">
+      <img src="{{ slide.img }}" alt="" width="100%"  class="song_image"/>
+      <div class="t_wrap">
+        {{slide.song_name}}
+      </div>
+    </div>
+    </div>
+  </ngx-slick-carousel>
+
+
+  <h2 class="song_types_title">New Releases</h2>
+  <ngx-slick-carousel class="carousel main_sub_slider" #slickModal="slick-carousel" [config]="slideConfig" >
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <div class="box">
+      <img src="{{ slide.img }}" alt="" width="100%"  class="song_image"/>
+      <div class="t_wrap">
+        {{slide.song_name}}
+      </div>
+    </div>
+    </div>
+  </ngx-slick-carousel>
+
+  <h2 class="song_types_title">Featured Artists</h2>
+  <ngx-slick-carousel class="carousel song_artists" #slickModal="slick-carousel" [config]="slideConfig" >
+    <div ngxSlickItem *ngFor="let slide of artists" class="slide">
+      <div class="box">
+      <img src="{{ slide.img }}" alt="" width="100%"  class="song_image"/>
+      <div class="t_wrap">
+        {{slide.song_name}}
+      </div>
+    </div>
+    </div>
+  </ngx-slick-carousel>
+  </div>
+  <div class="col-md-3"></div>
+  </div>
+  </div>

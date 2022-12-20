@@ -1,0 +1,241 @@
+@import "./cmn-scss/colors.scss";
+@import "./cmn-scss/mixin.scss";
+@import "./cmn-scss/media.scss";
+
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+// basic css
+* {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  outline: none;
+  box-sizing: border-box;
+}
+
+// .banner-login{
+// 	height: 100vh;
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: center;
+// 	align-items: center;
+// }
+// .login {
+// 	width: 400px;
+// 	height: auto;
+// 	position: relative;
+// 	/* background-color: #f1f1f1; */
+// 	padding: 100px 0px;
+// 	background: rgb(0, 0, 0, .8);
+// 	margin: 0 auto;
+// 	padding: 40px;
+// 	box-shadow: 0 15px 25px rgba(0, 0, 0, .7);
+// 	-moz-box-shadow:    0 15px 25px rgba(0, 0, 0, .7);
+// 	-webkit-box-shadow: 0 15px 25px rgba(0, 0, 0, .7);
+// 	border-radius: 10px;
+// }
+// .login h2 {
+// 	color: #fff;
+// 	margin: 0 0 30px;
+// 	text-align: center;
+//   }
+  
+//   .register {
+// 	margin: 0 auto;
+// 	position: relative;
+// 	background: rgb(0, 0, 0, .8);
+// 	padding: 30px;
+// 	box-shadow: 0 15px 25px rgba(0, 0, 0, .7);
+// 	-moz-box-shadow:    0 15px 25px rgba(0, 0, 0, .7);
+// 	-webkit-box-shadow: 0 15px 25px rgba(0, 0, 0, .7);
+// 	border-radius: 10px;
+//   }
+//   .register h2 {
+// 	color: #fff;
+// 	margin: 0 0 30px;
+// 	text-align: center;
+//   }
+//   .go_regster{
+// 	display: block;
+// 	font-weight: 500;
+// 	margin-top: 10px;
+// 	font-size: 17px;
+// 	color: #fff;
+//   }
+//   .go_regster a{
+// 	color: #03a9f4;
+// 	margin-left: 5px;
+//   }
+//   .inputBox {
+// 	position: relative;
+// 	margin-bottom: 30px;
+//   }
+//   .inputBox input {
+// 	width: 100%;
+// 	position: relative;
+// 	padding: 10px 0px;
+// 	font-size: 16px;
+// 	color: #fff;
+// 	border: none;
+// 	border-bottom: 1px solid #fff;
+// 	background: transparent;
+// 	margin-bottom: 10px;
+//   }
+
+//   .inputBox input:-webkit-autofill,
+//   input:-webkit-autofill:hover,
+//   input:-webkit-autofill:focus,
+//   textarea:-webkit-autofill,
+//   textarea:-webkit-autofill:hover,
+//   textarea:-webkit-autofill:focus,
+//   select:-webkit-autofill,
+//   select:-webkit-autofill:hover,
+//   select:-webkit-autofill:focus{
+// 	  -webkit-text-fill-color: #03a9f4;
+// 	  transition: background-color 5000s ease-in-out 0s;
+//   } 
+//   .inputBox label {
+// 	color: #fff;
+// 	letter-spacing: 1px;
+// 	position: absolute;
+// 	top: -20px;
+// 	left: 0;
+// 	padding: 10px 0px;
+// 	pointer-events: none;
+// 	transition: .5s;
+//   }
+//   .inputBox input:focus~label {
+// 	top: -20px;
+// 	left: 0;
+// 	color: #03a9f4;
+// 	font-size: 13px;
+//   }
+
+//   .inputBox #file{
+// 	margin-top: 10px;
+//   }
+//   .radiobtn{
+// 	color: #fff;
+// 	text-align: left;
+// 	margin-bottom: 30px;
+//   }	
+//   .radiobtn label{
+// 	  width: 10%; 
+//   }
+//   #message , #messageCpass{
+// 	box-shadow: 0px 0px 10px rgba(255,255,255,0.9);
+// 	position: absolute;
+// 	max-width:400px;
+// 	width: 100%;
+// 	top: -4px;
+// 	right: 0;
+// 	overflow: auto;
+// 	height: auto;
+// 	bottom: auto;
+// 	color: #fff;
+// 	margin: 0 auto;
+// 	border-radius: 4px;
+// 	padding-left: 5px;
+// 	/* display: none; */
+//   }
+//   #messageCpass{
+// 	max-width: 150px;
+// 	top: 0;
+//   }
+//   #message::after, #messageCpass::after {
+// 	content: "";
+// 	position: absolute;
+// 	bottom: 100%;
+// 	left: 50%;
+// 	margin-left: -15px;
+// 	border-width: 15px;
+// 	border-style: solid;
+// 	border-color: transparent transparent #fff transparent;
+//   }
+//   #message span, #messageCpass span {
+// 	display: inline-block;
+// 	font-size: 13px;
+// 	margin-left: 5px;
+// 	margin-bottom: 0;
+//   }
+//   .valid {
+// 	color: #61d861;
+//   }
+//   .valid:before {
+// 	position: relative;
+// 	left: -4px;
+// 	content: "✔";
+//   }
+//   .invalid {
+// 	color: #fff;
+//   }
+//   .invalid:before {
+// 	position: relative;
+// 	left: -4px;
+// 	content: "✖";
+//   }
+//   .facebook {
+// 	background: #3b5998;
+//   }
+
+//   .twitter {
+// 	background: #00aced;
+//   }
+
+//   .googleplus {
+// 	background: #dd4b39;
+//   }
+
+//   .boxing {
+// 	height: 500px;
+// 	background: #333;
+// 	width: 100%;
+// 	color: #fff;
+// 	padding: 0px 20px;
+//   }
+
+//   .pick {
+// 	width: 50px;
+// 	height: 50px;
+//   }
+
+//   .pickbig {
+// 	position: absolute;
+// 	width: 0px;
+// 	-webkit-transition: width 1s linear 0s;
+// 	transition: width 1s linear 0s;
+// 	z-index: 10;
+//   }
+
+//   .pick:hover+.pickbig {
+// 	width: 200px;
+//   }
+//   .forgot{
+// 	position: absolute;
+// 	right: 0;
+// 	top: -10px;
+
+//   }
+//   .forgot a{
+// 	color: #03a9f4;
+//   }

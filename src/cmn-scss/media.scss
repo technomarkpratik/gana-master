@@ -1,0 +1,36 @@
+
+/*----------------- responsive variations -----------------*/
+$mini-screen: 1199px;
+$ipad-view: 991px;
+$tab-view: 767px;
+$mobile-view: 575px;
+
+@mixin mini-screen {
+    @media (max-width: #{$mini-screen}) {
+        @content;
+    }
+}
+
+@mixin ipad-view {
+    @media (max-width: #{$ipad-view}) {
+        @content;
+    }
+}
+
+@mixin tab-view {
+    @media (max-width: #{$tab-view}) {
+        @content;
+    }
+}
+
+@mixin mobile-view {
+    @media (max-width: #{$mobile-view}) {
+        @content;
+    }
+}
+
+@mixin only-desktop {
+    @media (min-width: #{$ipad-view + 1}) {
+        @content;
+    }
+}

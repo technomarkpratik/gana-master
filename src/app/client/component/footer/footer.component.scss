@@ -1,0 +1,10 @@
+@import "/src/cmn-scss/colors.scss";
+@import "/src/cmn-scss/media.scss";
+@import "/src/cmn-scss/mixin.scss";
+.footer{
+    background-color: color(primary-gray);
+    padding: 20px 45px;
+    width: 100%;
+    min-height: 500px;
+
+}

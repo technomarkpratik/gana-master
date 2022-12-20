@@ -1,0 +1,40 @@
+{
+  "admin-register": [
+    {
+      "id": 1,
+      "email": "sathavarapratik9@gmail.com",
+      "first_name": "gyaata psd assign to me ",
+      "last_name": "argsxrg",
+      "password": "123Prince@",
+      "password_confirmation": "123Prince@",
+      "phone_number": "1234567667"
+    },
+    {
+      "id": 2,
+      "email": "sathavarapratik9@gmail.com",
+      "first_name": "gyaata psd assign to me ",
+      "last_name": "argsxrg",
+      "password": "123Prince@",
+      "password_confirmation": "123Prince@",
+      "phone_number": "1234567667"
+    },
+    {
+      "id": 3,
+      "email": "sathavarapratik9@gmail.com",
+      "first_name": "gyaata psd assign to me ",
+      "last_name": "argsxrg",
+      "password": "123Prince@",
+      "password_confirmation": "123Prince@",
+      "phone_number": "1234567667"
+    },
+    {
+      "first_name": "pratik",
+      "last_name": "sathawara",
+      "phone_number": "9876541230",
+      "email": "abcr@gmail.com",
+      "password": "Prince@123",
+      "password_confirmation": "Prince@123",
+      "id": 4
+    }
+  ]
+}
