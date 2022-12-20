@@ -32,16 +32,21 @@ export class LoginComponent {
   }
  
 
-  regss: any = {};
+  loginsuccessdata: object = {};
   logindata(loginform:any){  
  console.log(this.loginform.value);
  
  this.service.loginservice(loginform.value).subscribe(
-  (response) => this.regss.access_token = response,
-  (error) => console.log(error),   
+  (response) => this.das(response),
+  // (error) => console.log(error),   
    )
-   localStorage.setItem('loginstore', this.regss);
-   console.log(this.regss)
+  
+   console.log(this.loginsuccessdata)
    this.router.navigate(['/home']);
+ }
+ das(respons:any){
+  console.log(respons);
+  localStorage.setItem('loginstore', JSON.stringify(respons));
+  localStorage.setItem('idstore', JSON.stringify(respons.data));
  }
 } 

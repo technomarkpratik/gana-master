@@ -6,10 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  tokendata :any = localStorage.getItem('loginstore');
+  autoLgin(){
+    let tokendata  = JSON.stringify(localStorage.getItem('loginstore'));
+    let storeid  = JSON.stringify(localStorage.getItem('idstore'));
+    if(!storeid){
+      alert('sdsds');
+    }else{
+      alert("id pass " +storeid);
+    }
+    if(!tokendata){
+      alert('adasdsd');
+    }
+  }
+ 
 
   ngOnInit(): void {
- 
+   
 }
 
   loging_s : any;
