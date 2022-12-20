@@ -1,0 +1,19 @@
+.my_prof_sec{
+    padding: 20px 45px;
+    background-color: #ddd;
+    .prof_box{
+        max-width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        .user_img{
+            width: 70px;
+            height: 70px;
+            margin: 0 auto;
+            img{
+                width: 100%;
+                border: 1px solid #333;
+                border-radius: 50%;
+            }
+        }
+    }
+}

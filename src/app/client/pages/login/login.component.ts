@@ -45,8 +45,10 @@ export class LoginComponent {
    this.router.navigate(['/home']);
  }
  das(respons:any){
-  console.log(respons);
+  // console.log(respons);
   localStorage.setItem('loginstore', JSON.stringify(respons));
-  localStorage.setItem('idstore', JSON.stringify(respons.data));
+  localStorage.setItem('idstore', JSON.stringify(respons.data.email));
+  let sabcd = localStorage.getItem('idstore')
+ alert(sabcd);
  }
 } 

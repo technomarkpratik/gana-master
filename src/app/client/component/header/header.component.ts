@@ -7,14 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   autoLgin(){
-    let tokendata  = JSON.stringify(localStorage.getItem('loginstore'));
+    let logincheck  = JSON.stringify(localStorage.getItem('loginstore'));    
+    if(!logincheck){
+      alert('your session is expired');
+    }
+
     let storeid  = JSON.stringify(localStorage.getItem('idstore'));
     if(!storeid){
-      alert('sdsds');
-    }else{
-      alert("id pass " +storeid);
-    }
-    if(!tokendata){
       alert('adasdsd');
     }
   }
