@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-songslider',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./songslider.component.scss']
 })
 export class SongsliderComponent {
+  
   slides = [
     {img: "/assets/image/shiv.jpg", song_name : 'dill ne'},
     {img: "/assets/image/bhakti-song.jpg", song_name : 'dill ne'},
@@ -35,13 +36,30 @@ export class SongsliderComponent {
      centerPadding: '20%', 
                 };
   slideConfig = {  infinite: true,
-                    slidesToShow: 6,
+                    slidesToShow: 5,
                     slidesToScroll: 1,
                     autoplay:true,
                     // centerMode: true,
                     speed: 300,
                     centerPadding: '60px', 
+                    responsive: [
+                      {
+                        breakpoint: 1100,
+                        settings: {
+                          slidesToShow: 4,
+                        }
+                      },
+                      {
+                        breakpoint: 767,
+                        settings: {
+                          slidesToShow: 2,
+                        }
+                      },
+                    ]
                   };
-
-
+  Ename:string | undefined ;
+   opensong(){
+    alert('hello');
+    this.Ename = "block";
+   }
 }

@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
 <div class="col-md-12">
-  <h2 class="text-center m-3">Login</h2>
           <form [formGroup]="loginform" (ngSubmit)="logindata(loginform)">
             <div class="inputBox form-group mb-3">
                <input type="text" id="email" name="email" formControlName="email" placeholder="please enter your mobile number" class="form-control"/>
@@ -17,10 +16,12 @@
                    Please enter your password
                 </span>
             </div>
-            <button type="login" class="btn btn-primary btn-block mb-3"> Login </button>
-            <div class="go_regster">Not a member yet?<br>
-            <a routerLink="/home/register" title="Sign Up"> Sign Up For User</a><br>
-            <div class="go_regster"><a routerLink="/" title="Sign Up" class="text-success"> Back To Home</a></div>
+            <button type="submit" class="btn btn-primary btn-block mb-3 close" data-dismiss="modal" data-dismiss="modal"> Login </button>
+            <hr>
+            <div class="go_regster">
+              <!-- Not a member yet?<br>
+            <a routerLink="/home/register" title="Sign Up"> Sign Up For User</a><br> -->
+            <div class="go_regster"><a routerLink="/" title="Sign Up" > Back To Home</a></div>
          </div>
          </form>
         </div>

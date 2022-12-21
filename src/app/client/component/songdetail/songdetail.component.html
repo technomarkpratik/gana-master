@@ -1,1 +1,69 @@
-<p>songdetail works!</p>
+<div class="main">
+<div class="play_song_box" [ngClass]="{'play_song' : false}" [class.visited] = "toggle_play == true">
+    <div  class="play_detail">
+        <div class="song_img">
+            <img src="../assets/image/album_img.jpg" alt="">
+            </div>
+            <div class="detail">
+                <div class="song_name">
+                    <small>Rate Lambiya</small>
+                </div>
+                <div class="artist_name">
+                    <small>Arjit Sing</small>
+                </div>
+            </div>
+        <div class="audio">
+            <audio src="../assets/music/sample-3s.mp3"  controls>	
+                <p>Fallback content goes here.</p>
+                </audio>
+            </div>
+    </div>
+
+<div class="queue_list">
+    <div class="title_box">
+        <h4>queue</h4>
+        <div class="down_icon" (click) = "checkVisited()">
+            <i class="fa-solid fa-angle-down"></i>
+        </div>
+    </div>
+    <ul>
+        <li class="song_detail" *ngFor="let song of songdetail">               
+                <div class="song_img">
+                <img [src]="song?.img" alt="">
+                </div>
+                <div class="detail">
+                <div class="song_name">
+                    <small>{{song.title}}</small>
+                </div>
+                <div class="artist_name">
+                    <small>{{song.artist}}</small>
+                </div>
+                </div>               
+        </li>
+    </ul>
+</div>
+</div>
+<div class="sticky_player" [class.visited] = "toggle_play_sticky == true">
+<div class="song_detail" >
+<div class="song_img">
+<img src="../assets/image/user.jpg" alt="">
+</div>
+<div class="detail">
+    <div class="song_name">
+        <small>Rate Lambiya</small>
+    </div>
+    <div class="artist_name">
+        <small>Arjit Sing</small>
+    </div>
+</div>
+</div>
+<div class="audio">
+<audio src="../assets/music/sample-3s.mp3"  controls>	
+<p>Fallback content goes here.</p>
+</audio>
+</div>
+<div class="top_aerrow" (click) = "checkVisited()">
+<i class="fa-solid fa-angle-up"></i>
+</div>
+</div>
+</div>

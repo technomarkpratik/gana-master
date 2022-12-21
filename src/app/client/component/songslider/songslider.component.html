@@ -4,21 +4,25 @@
 
   <ngx-slick-carousel class="carousel homebanner" #slickModal="slick-carousel" [config]="slideConfigbanner" >
     <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-      <div class="box">
-        <img src="" alt="">
-      <img src="{{ slide.img }}" alt="" width="100%"  class="song_image"/>
       
+      <div class="box">
+        <a (click)="opensong()">
+       <img src="{{ slide.img }}" alt="" width="100%"  class="song_image"/>
+    </a>
       </div>
+     
     </div>
   </ngx-slick-carousel>
   <h2 class="song_types_title">Trending Songs</h2>
   <ngx-slick-carousel class="carousel main_sub_slider" #slickModal="slick-carousel" [config]="slideConfig" >
     <div ngxSlickItem *ngFor="let slide of slides" class="slide">
       <div class="box">
+        <a (click)="opensong()">
       <img src="{{ slide.img }}" alt="" width="100%"  class="song_image"/>
       <div class="t_wrap">
         {{slide.song_name}}
       </div>
+    </a>
     </div>
     </div>
   </ngx-slick-carousel>
@@ -28,10 +32,12 @@
   <ngx-slick-carousel class="carousel main_sub_slider" #slickModal="slick-carousel" [config]="slideConfig" >
     <div ngxSlickItem *ngFor="let slide of slides" class="slide">
       <div class="box">
+        <a (click)="opensong()">
       <img src="{{ slide.img }}" alt="" width="100%"  class="song_image"/>
       <div class="t_wrap">
         {{slide.song_name}}
       </div>
+    </a>
     </div>
     </div>
   </ngx-slick-carousel>
@@ -40,10 +46,12 @@
   <ngx-slick-carousel class="carousel song_artists" #slickModal="slick-carousel" [config]="slideConfig" >
     <div ngxSlickItem *ngFor="let slide of artists" class="slide">
       <div class="box">
+        <a (click)="opensong()">
       <img src="{{ slide.img }}" alt="" width="100%"  class="song_image"/>
       <div class="t_wrap">
         {{slide.song_name}}
       </div>
+    </a>
     </div>
     </div>
   </ngx-slick-carousel>

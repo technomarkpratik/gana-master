@@ -37,18 +37,17 @@ export class LoginComponent {
  console.log(this.loginform.value);
  
  this.service.loginservice(loginform.value).subscribe(
-  (response) => this.das(response),
-  // (error) => console.log(error),   
+  (response) => this.das(response), 
    )
   
-   console.log(this.loginsuccessdata)
-   this.router.navigate(['/home']);
  }
  das(respons:any){
-  // console.log(respons);
-  localStorage.setItem('loginstore', JSON.stringify(respons));
-  localStorage.setItem('idstore', JSON.stringify(respons.data.email));
-  let sabcd = localStorage.getItem('idstore')
- alert(sabcd);
+  localStorage.clear();
+  localStorage.setItem('userdata',''+ JSON.stringify(respons.data));
+  localStorage.setItem('accesstoken',''+ JSON.stringify(respons.access_token));
+  let sabcd = localStorage.getItem('accesstoken');
+  window.location.reload();
+  this.router.navigate(['']);
+
  }
 } 

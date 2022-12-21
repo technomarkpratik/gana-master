@@ -6,14 +6,15 @@
   padding: 0 45px;
 }
 
-.navbar {
+.song_menu {
       position: sticky;
       width: 100%;
-      top: 60px;
-      z-index: 110;
+      top: 75px;
+      z-index: 1;
       transition: all 0.2s;
       background-color: color(pure-white);
       padding: 10px 45px;
+      display: none;
       .navbar-brand {
         padding: 0;
         img {

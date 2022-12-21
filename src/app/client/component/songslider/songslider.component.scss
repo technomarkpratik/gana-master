@@ -16,6 +16,11 @@ body .slick-next {
   .slide{
     .box{
       padding: 10px;
+      a{
+        color: #000;
+        text-decoration: none;
+        display: inline-block;
+      }
       .song_image{
         height: 100%;
         width: 100%;
@@ -49,9 +54,18 @@ body .slick-next {
                 border-radius: 50%;
                 width: 160px;
                 height: 160px;
+                margin: 0 auto;
+                display: block;
+                img{
+                    max-width: 100%;
+                }
             }
                 .t_wrap{
+                    margin-top: 5px;
                     text-align: center;
+                    font-weight: 600;
+                text-transform: capitalize;
+                color: color(pure-black);
                 }
         }
     }

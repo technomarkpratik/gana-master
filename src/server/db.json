@@ -36,5 +36,31 @@
       "password_confirmation": "Prince@123",
       "id": 4
     }
-  ]
+  ],
+  "songsdetail" : [
+    {
+      "id" : 1,
+      "image" : "../assets/image/user.jpg",
+      "title": "rate gfdgfdg",
+      "artist" : "arjit sing"
+    },
+    {
+      "id" : 2,
+      "image" : "../assets/image/user.jpg",
+      "title": "rate gfdgfdg",
+      "artist" : "ramesh sing"
+    },
+    {
+      "id" : 3,
+      "image" : "../assets/image/user.jpg",
+      "title": "rate gfdgfdg",
+      "artist" : "arjit sing"
+    },
+    {
+      "id" : 4,
+      "image" : "../assets/image/user.jpg",
+      "title": "rate gfdgfdg",
+      "artist" : "sumit sing"
+    }
+    ]
 }

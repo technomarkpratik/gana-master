@@ -1,5 +1,41 @@
 <div class="footer">
     <div class="container-fluid">
-        <p>footer works</p>
+    <div class="footer_top">
+        <h2>Bas Bajna Chahiye Gaana</h2>
+        <p>Gaana is the one-stop solution for all your music needs. Gaana offers you free, unlimited access to over 30 million Hindi Songs, Bollywood Music, English MP3 songs, Regional Music & Mirchi Play.</p>
     </div>
+    <div class="f_social">
+        <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="twt"><i class="fa-brands fa-twitter"></i></a>
+    </div>
+   <div class="quick_links">
+    <div class="box">
+        <h4 class="title_text">Albums</h4>
+        <ul>
+            <li *ngFor="let album of albums"><a href="#">{{album}}</a></li>
+        </ul>
+    </div>
+    <div class="box">
+        <h4 class="title_text">Artists</h4>
+        <ul>
+            <li *ngFor="let artist of artists"><a href="#">{{artist}}</a></li>
+        </ul>
+    </div>
+    <div class="box">
+        <h4 class="title_text">New Release</h4>
+        <ul>
+            <li *ngFor="let album of albums"><a href="#">{{album}}</a></li>
+        </ul>
+    </div>
+    <div class="box">
+        <h4 class="title_text">Trending Songs</h4>
+        <ul>
+            <li *ngFor="let album of albums"><a href="#">{{album}}</a></li>
+        </ul>
+    </div>
+   </div>
+   <div class="footer_bottom">
+    <p>© Gamma Gaana Ltd. 2022, All Rights Reserved</p>
+   </div>
+</div>
 </div>

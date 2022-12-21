@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
+import { HomepageService } from '../../../services/homepage.service';
 
 @Component({
   selector: 'app-header',
@@ -6,23 +8,88 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  autoLgin(){
-    let logincheck  = JSON.stringify(localStorage.getItem('loginstore'));    
-    if(!logincheck){
-      alert('your session is expired');
-    }
+  loging_s:any = "";
+  login_p:any = "";
+  songs:any = {};
+  userdata: any = {};
 
-    let storeid  = JSON.stringify(localStorage.getItem('idstore'));
-    if(!storeid){
-      alert('adasdsd');
-    }
-  }
- 
+  accesstoken = window.localStorage.getItem("accesstoken");
 
-  ngOnInit(): void {
+  constructor(private homeservice:HomepageService,private service:AuthService, private elem: ElementRef){
+    this.userdata = window.localStorage.getItem("userdata");
+    console.log(this.userdata);
+    if(this.userdata){
+      this.loging_s = 'inline-block' ;
+      this.login_p = 'none'; 
+    }
    
-}
+  } 
+  ngOnInit(){
+    this.displaysongs();
+  } 
+   id:number | undefined;
+  logout(){
+    console.log(this.userdata);
+    if(window.confirm("are you sure want to logout")){
+      this.service.logout_data(this.userdata).subscribe(data => console.log(data));
+      localStorage.clear();
+      // window.location.reload();
+      this.loging_s = 'none' ;
+      this.login_p = 'inline-block'; 
+    } 
+  }
 
-  loging_s : any;
-  login_p : any;
+  public open_search = false;
+  opensearch(){
+    this.open_search = !this.open_search;
+  }
+  @HostListener('window:click', ['$event'])
+  DocumentClick(event: Event) {
+    if (this.elem.nativeElement.contains(event.target))
+      this.open_search= true;
+    else
+      this.open_search = false;
+  }
+
+  search_filter: any;
+  songdetail = [
+    {
+      img :'../assets/image/user.jpg',
+      title: 'rate gfdgfdg',
+      artist : 'arjit sing'
+    },
+    {
+      img :'../assets/image/user.jpg',
+      title: 'fdggdg lambiya',
+      artist : 'arjit sing'
+    },
+    {
+      img :'../assets/image/user.jpg',
+      title: 'fdgvfdv lambiya',
+      artist : 'arjit sing'
+    },
+    {
+      img :'../assets/image/user.jpg',
+      title: 'rate dvfdv',
+      artist : 'ramesh sing'
+    },
+    {
+      img :'../assets/image/user.jpg',
+      title: 'rate lambiya',
+      artist : 'arjit sing'
+    },
+    {
+      img :'../assets/image/user.jpg',
+      title: 'fdvfdv lambiya',
+      artist : 'ramesh sing'
+    },
+    {
+      img :'../assets/image/user.jpg',
+      title: 'rate fdvdv',
+      artist : 'bharat patel'
+    },    
+  ]
+  displaysongs(){
+    this.homeservice.songlist().subscribe(data => this.songs = data);
+  }
 }

@@ -13,6 +13,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegristerComponent } from './pages/regrister/regrister.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './component/header/header.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -31,7 +32,8 @@ import { HeaderComponent } from './component/header/header.component';
     ClientRoutingModule,
     SlickCarouselModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
   ]
 })
 export class ClientModule { }

@@ -12,12 +12,17 @@
   justify-content: space-between;
   align-items: center;
   z-index: 1;
+  height: 75px;
   .logo{
     width: 10%;
+    img{
+      width: 90px;
+    }
   }
   .search{
     width: 70%;
     justify-self: flex-start;
+    position: relative;
     .input-group{
       .input_search{
         border: 1px solid color(secondary-color);       
@@ -29,6 +34,57 @@
           color: color(primary-color);
           background-color: color(secondary-color);
         }
+      }
+    }
+    .search_box_inner{
+      display: none;
+      position: absolute;
+      // top: 0;
+      width: 100%;
+      z-index: 999;
+      // min-height: 100px;
+      background-color: #fff;
+      box-shadow: 0 0 3px 3px rgba(0,0,0,.1);
+      border-radius: 6px;
+      padding: 10px;
+      &.visited{
+        display: block;
+      }
+      .song_detail{
+        width: 50%;
+        float:left;
+        display: flex;
+        align-items: center;
+        margin-bottom: 6px;
+        padding: 5px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        @include ipad-view{
+          width: 100%;
+        }
+        .song_img{
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            background-color: #ddd;
+            img{
+                max-width: 100%;
+                border-radius: 6px;
+            }
+        }
+        a{
+          color: #000;
+          text-decoration: none;
+        .detail{
+           .song_name{
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: capitalize;
+           } 
+           .artist_name{
+            text-transform: capitalize;
+            font-size: 14px;
+           }
+        }}
       }
     }
   }
@@ -44,7 +100,13 @@
        height: 100%;
        border-radius: 50%;
       border: 1px solid color(pure-black);     
-      }     
+      } 
+      .dropdown-menu{
+        z-index: 2;
+      }   
+    }
+    .loging_s{
+      display: block;
     }
     .loging_p{
       color: #333;
@@ -55,3 +117,24 @@
   }
 }
 
+.modal-header{
+  .nav-tabs{
+    // margin: 0 auto;
+    border: 0;
+    .nav-link{
+     
+      background-color: #e72c2fd8;
+    font-weight: 600;
+    color: #fff;
+    width: 100px;
+    border-radius: 6px;
+    border: 0;
+    margin-right: 15px;
+    text-align: center;
+    }
+    .active{
+      background: #e72c30;
+      box-shadow: 0 0 6px #e72c30;
+    }
+  }
+}
