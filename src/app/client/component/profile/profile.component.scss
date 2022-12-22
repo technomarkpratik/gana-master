@@ -4,16 +4,20 @@
     .prof_box{
         max-width: 50%;
         margin: 0 auto;
-        text-align: center;
+        // text-align: center;
         .user_img{
             width: 70px;
             height: 70px;
             margin: 0 auto;
+            margin-bottom: 10px;
             img{
                 width: 100%;
                 border: 1px solid #333;
                 border-radius: 50%;
             }
+        }
+        .user_name{
+            text-align: center;
         }
     }
 }

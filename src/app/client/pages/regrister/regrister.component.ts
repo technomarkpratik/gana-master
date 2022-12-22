@@ -22,9 +22,8 @@ export class RegristerComponent {
     email:new FormControl('abcr@gmail.com',[Validators.required]),
     password:new FormControl('Prince@123',[Validators.required]) ,   
     password_confirmation:new FormControl('Prince@123',[Validators.required]),      
-    // imgpath:new FormControl('',[Validators.required])   
+    subscription_type:new FormControl('',[Validators.required]),      
   });
-  // this.display();
 }
   get first_name(){  return this.regristerform.get('first_name');}
   get last_name(){  return this.regristerform.get('last_name');}
@@ -32,7 +31,8 @@ export class RegristerComponent {
   get email(){  return this.regristerform.get('email');}
   get password(){  return this.regristerform.get('password');}
   get password_confirmation(){  return this.regristerform.get('password_confirmation');} 
-  // get imgpath(){  return this.regristerform.get('imgpath');}
+  get subscription_type(){  return this.regristerform.get('subscription_type');} 
+
   resutl:any;
   public error = {
     name: null,
@@ -42,9 +42,17 @@ export class RegristerComponent {
   handleError(error:any) {
     this.error = error.error.errors;
   }
-  regdata(data:any){
-    this.service.registerdata(data).subscribe(
-      data =>  console.log(data),
-      error => this.handleError(error),)
+  regdata(regristerform:any){  
+    this.service.registerdata(regristerform.value).subscribe(
+      response =>  this.reg_response(response) ,
+      // error => this.handleError(error),
+      )
     }
+    reg_response(response:any){
+      window.localStorage.setItem('regrister_user_data',''+ JSON.stringify(response.data));
+       localStorage.setItem('accesstoken_reg',''+ (response.access_token));
+       let abcd = localStorage.getItem('regrister_user_data');
+      //  window.location.reload();
+    this.router.navigate(['']);
+     }
 }

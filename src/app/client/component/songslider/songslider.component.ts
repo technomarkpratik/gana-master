@@ -57,9 +57,5 @@ export class SongsliderComponent {
                       },
                     ]
                   };
-  Ename:string | undefined ;
-   opensong(){
-    alert('hello');
-    this.Ename = "block";
-   }
+
 }

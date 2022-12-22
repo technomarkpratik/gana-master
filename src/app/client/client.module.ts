@@ -14,6 +14,8 @@ import { RegristerComponent } from './pages/regrister/regrister.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './component/header/header.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SongboxComponent } from './pages/songbox/songbox.component';
+import { Ng2CompleterModule } from "ng2-completer";
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -25,7 +27,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ProfileComponent,
     SubscribeComponent,
     MainsectionComponent,
-    RegristerComponent
+    RegristerComponent,
+    SongboxComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     SlickCarouselModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    Ng2CompleterModule
   ]
 })
 export class ClientModule { }

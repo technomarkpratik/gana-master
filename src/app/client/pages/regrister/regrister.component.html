@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 <div class="col-md-12">
-          <form [formGroup]="regristerform" (ngSubmit)="regdata(regristerform.value)">
+          <form [formGroup]="regristerform" (ngSubmit)="regdata(regristerform)">
               <div class="inputBox form-group mb-3">
                   <input type="text" id="first_name" name="name" formControlName="first_name" placeholder="please enter your first_name" class="form-control"/>
                   <!-- <label><i class="fa fa-user"></i> MobileNo</label> -->
@@ -45,14 +45,15 @@
                </span>
            </div>
       
-           <!-- <div class=" radiobtn">
-              <label><i class="fa fa-transgender" aria-hidden="true"></i>&nbsp; Gender : </label>
-              <label><input type="radio" name="gender" id="Male" formControlName="gender"  value="Male" /> Male </label>
-              <label><input type="radio" name="gender" id="Female" formControlName="gender"  value="Female"/> FeMale</label>
-              <div class="text-danger" *ngIf="!gender?.valid && (gender?.touched || gender?.dirty)">
-                 please enter your gender
-               </div>
-            </div> -->
+           <div class=" radiobtn">
+            <label><i class="fa fa-transgender" aria-hidden="true"></i>&nbsp; Gender : </label>
+            <label><input type="radio" name="subscription_type" id="subscription_type" formControlName="subscription_type"  value="1"/> Premium </label>
+            <label><input type="radio" name="subscription_type" id="subscription_type" formControlName="subscription_type" value="2"/>VIP  </label>
+            <label><input type="radio" name="subscription_type" id="subscription_type" formControlName="subscription_type" value="3"/>Free </label>
+            <div class="text-danger" *ngIf="!subscription_type?.valid && (subscription_type?.touched || subscription_type?.dirty)">
+               please select any one 
+             </div>
+          </div>
             <!-- <div class="inputBox mb-3">
               <input type="file" name="imgpath" id="imgpath" formControlName="imgpath" [(ngModel)]="data" />
               <label for="fullname"><i class="fa fa-user"></i>&nbsp; SRC :</label>

@@ -1,61 +1,33 @@
-<p>profile works!</p>
-<a routerLink="subscribe">Subscription</a>
+
 <router-outlet></router-outlet>
 <div class="my_prof_sec">
     <div class="prof_box">
         <div class="user_img">
         <img src="../assets/image/user.jpg" alt="">
     </div>
-        <h2 class="user_name">guest</h2>
-        <form [formGroup]="regristerform" (ngSubmit)="regdata(regristerform.value)">
-            <div class="inputBox form-group mb-3">
-                <input type="text" id="first_name" name="name" formControlName="first_name" placeholder="please enter your first_name" class="form-control"/>
-                <!-- <label><i class="fa fa-user"></i> MobileNo</label> -->
-                <span class="text-danger" *ngIf="!first_name?.valid && (first_name?.touched || first_name?.dirty)" >
-                    Please enter your username
-                 </span>
-             </div>
-             <div class="inputBox form-group mb-3">
-                <input type="text" id="last_name" name="last_name" formControlName="last_name" placeholder="please enter your last_name" class="form-control"/>
-                <!-- <label><i class="fa fa-user"></i> MobileNo</label> -->
-                <span class="text-danger" *ngIf="!last_name?.valid && (last_name?.touched || last_name?.dirty)" >
-                    Please enter your username
-                 </span>
-             </div>
-             <div class="inputBox form-group mb-3">
-                <input type="text" id="phone_number" name="phone_number" formControlName="phone_number" placeholder="please enter your phone_number" class="form-control"/>
-                <!-- <label><i class="fa fa-eye" aria-hidden="true"></i> phone_number</label>  -->
-                <span class="text-danger" *ngIf="!phone_number?.valid && (phone_number?.touched || phone_number?.dirty)" >
-                    Please enter your mobileno
-                 </span>
-             </div>
-          <div class="inputBox form-group mb-3">
-             <input type="text" id="email" name="email" formControlName="email" placeholder="please enter your email" class="form-control"/>
-             <!-- <label><i class="fa fa-user"></i> MobileNo</label> -->
-             <span class="text-danger" *ngIf="!email?.valid && (email?.touched || email?.dirty)" >
-                 Please enter your mobile no
-              </span>
-          </div>
-          <div class="inputBox form-group mb-3">
-             <input type="password" id="password" name="password" formControlName="password" placeholder="please enter your password" class="form-control"/>
-             <!-- <label><i class="fa fa-eye" aria-hidden="true"></i> Password</label>  -->
-             <span class="text-danger" *ngIf="!password?.valid && (password?.touched || password?.dirty)" >
-                 Please enter your password
-              </span>
-          </div>
-          <div class="inputBox form-group mb-3">
-            <input type="password" id="password_confirmation" name="password_confirmation" formControlName="password_confirmation" placeholder="please enter your password_confirmation" class="form-control"/>
-            <!-- <label><i class="fa fa-eye" aria-hidden="true"></i> password_confirmation</label>  -->
-            <span class="text-danger" *ngIf="!password_confirmation?.valid && (password_confirmation?.touched || password_confirmation?.dirty)" >
-                Please enter your password_confirmation
-             </span>
-         </div>
-    
-          <button type="login" class="btn btn-primary btn-block mb-3" [disabled]="!regristerform.valid"> Login </button>
-          <div class="go_regster">Not a member yet?<br>
-          <a routerLink="" title="Sign Up"> Sign Up For User</a><br>
-          <div class="go_regster"><a routerLink="/" title="Sign Up" class="text-success"> Back To Home</a></div>
-       </div>
-       </form>
+    <h3 class="user_name">{{your_profile_data.first_name}}</h3>
+   <table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>first name</th>
+        <th>first last</th>
+        <th>email</th>
+        <th>phone number</th>
+        <th>subscription type</th>
+    </tr>
+    <tr>
+        <td>{{your_profile_data.id}}</td>
+        <td>{{your_profile_data.first_name}}</td>
+        <td>{{your_profile_data.last_name}}</td>
+        <td>{{your_profile_data.email}}</td>
+        <td>{{your_profile_data.phone_number}}</td>
+        <td>{{your_profile_data.subscription_type}}</td>
+        
+    </tr>
+   </table>
+     
+   
+
+        <a routerLink="subscribe">Subscription</a>
     </div>
 </div>

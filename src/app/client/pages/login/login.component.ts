@@ -16,8 +16,8 @@ export class LoginComponent {
  
   ngOnInit(): void {
     this.loginform = this.formbuilder.group({
-      email:new FormControl('nikunj301@gmail.com',[Validators.required,Validators.email]),
-      password:new FormControl('Nikunj@12345',[Validators.required])
+      email:new FormControl('pratik.sathawara@technomark.io',[Validators.required,Validators.email]),
+      password:new FormControl('Dubond@123',[Validators.required])
     })
   }
 
@@ -43,9 +43,10 @@ export class LoginComponent {
  }
  das(respons:any){
   localStorage.clear();
+
   localStorage.setItem('userdata',''+ JSON.stringify(respons.data));
-  localStorage.setItem('accesstoken',''+ JSON.stringify(respons.access_token));
-  let sabcd = localStorage.getItem('accesstoken');
+  localStorage.setItem('accesstoken',''+ (respons.data.access_token));
+
   window.location.reload();
   this.router.navigate(['']);
 

@@ -10,8 +10,9 @@ export class MainsectionComponent {
   userdata: any = {};
   close_menu:any = "";
   constructor(private service:AuthService){
+
     this.userdata = window.localStorage.getItem("userdata");
-    console.log(this.userdata);
+
     if(this.userdata){
       this.close_menu = 'block' ;
     }
