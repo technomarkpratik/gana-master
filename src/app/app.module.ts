@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
     declarations: [
         AppComponent,
@@ -20,7 +21,9 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
         AppRoutingModule,
         ReactiveFormsModule,
         FormsModule,
-        SlickCarouselModule
+        SlickCarouselModule,
+        Ng2SearchPipeModule,
+        ToastrModule
     ]
 })
 export class AppModule { }

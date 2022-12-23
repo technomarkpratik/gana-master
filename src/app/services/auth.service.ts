@@ -30,4 +30,8 @@ export class AuthService {
  getprofile(){
   return this.http.get(this.serverurl + '/v1/get-profile',this.httpOptions);
  }
+  
+ updateprofile(data:any){
+  return this.http.post(this.serverurl + '/v1/update-profile',data, this.httpOptions);
+ }
 }

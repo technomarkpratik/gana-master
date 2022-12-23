@@ -18,19 +18,31 @@
     <div class="box">
         <h4 class="title_text">Artists</h4>
         <ul>
-            <li *ngFor="let artist of artists"><a href="#">{{artist}}</a></li>
+            <li *ngFor="let artist of artists"><a href="#">{{artist.name}}</a></li>
         </ul>
     </div>
+    <!-- <div class="box">
+        <h4 class="title_text">Artists</h4>
+        <ul>
+            <li *ngFor="let artist of artists"><a href="#">{{artist}}</a></li>
+        </ul>
+    </div> -->
     <div class="box">
         <h4 class="title_text">New Release</h4>
         <ul>
-            <li *ngFor="let album of albums"><a href="#">{{album}}</a></li>
+            <li *ngFor="let song of songs"><a href="#">{{song.title}}</a></li>
         </ul>
     </div>
-    <div class="box">
+    <!-- <div class="box">
         <h4 class="title_text">Trending Songs</h4>
         <ul>
             <li *ngFor="let album of albums"><a href="#">{{album}}</a></li>
+        </ul>
+    </div> -->
+    <div class="box">
+        <h4 class="title_text">Trending Songs</h4>
+        <ul>
+            <li *ngFor="let song of songs"><a href="#">{{song.title}}</a></li>
         </ul>
     </div>
    </div>

@@ -5,30 +5,35 @@
             <div class="col-lg-9">
                 <div  class="play_detail">
                     <div class="song_img">
-                        <img src="../assets/image/album_img.jpg" alt="">
+                        <img src="{{songs.image_path }}" alt="">
+                        
                         </div>
                         <div class="detail">
                             <div class="song_name">
-                                <small>Rate Lambiya</small>
+                                <small>{{songs.title}}</small>
                             </div>
                             <div class="artist_name">
-                                <small>Arjit Sing</small>
+                                <small>{{songs.category.name}}</small>
                             </div>
-                            <p> <a href="#" class="btn btn-danger">Play song</a></p>
+                            <p> <a  class="btn btn-danger">Play song</a></p>
                         </div>
                 </div>
-                <ngx-slick-carousel class="carousel main_sub_slider" #slickModal="slick-carousel" [config]="slideConfig" >
+                <div class="artist_name">
+                    <h4>Description</h4>
+                    <small>{{songs.description}}</small>
+                </div>
+                <!-- <ngx-slick-carousel class="carousel main_sub_slider" #slickModal="slick-carousel" [config]="slideConfig" >
                     <div ngxSlickItem *ngFor="let slide of slides" class="slide">
                       <div class="box">
-                        <a >
-                      <img src="{{ slide.img }}" alt="" width="100%"  class="song_image"/>
+                        <a [routerLink]="['/home/songbox',slide.id]">
+                      <img src="{{ slide.image_path }}" alt="" width="100%"  class="song_image"/>
                       <div class="t_wrap">
-                        {{slide.song_name}}
+                        {{slide.title}}
                       </div>
                     </a>
                     </div>
                     </div>
-                  </ngx-slick-carousel>
+                  </ngx-slick-carousel> -->
             </div>
             <div class="col-lg-3"></div>
         </div>

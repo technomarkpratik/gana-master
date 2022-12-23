@@ -16,12 +16,12 @@ export class RegristerComponent {
   constructor(private formbuilder:FormBuilder, private service:AuthService,private router:Router,private http:HttpClient){}
   ngOnInit(): void {
   this.regristerform = this.formbuilder.group({
-    first_name:new FormControl('pratik',[Validators.required]),
-    last_name:new FormControl('sathawara',[Validators.required]),
-    phone_number:new FormControl('9876541230',[Validators.required]),
-    email:new FormControl('abcr@gmail.com',[Validators.required]),
-    password:new FormControl('Prince@123',[Validators.required]) ,   
-    password_confirmation:new FormControl('Prince@123',[Validators.required]),      
+    first_name:new FormControl('',[Validators.required]),
+    last_name:new FormControl('',[Validators.required]),
+    phone_number:new FormControl('',[Validators.required]),
+    email:new FormControl('',[Validators.required]),
+    password:new FormControl('',[Validators.required]) ,   
+    password_confirmation:new FormControl('',[Validators.required]),      
     subscription_type:new FormControl('',[Validators.required]),      
   });
 }
@@ -54,5 +54,6 @@ export class RegristerComponent {
        let abcd = localStorage.getItem('regrister_user_data');
       //  window.location.reload();
     this.router.navigate(['']);
+    alert("your regristration successfully")
      }
 }

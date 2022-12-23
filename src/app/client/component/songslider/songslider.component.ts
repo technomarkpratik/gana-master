@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { HomepageService } from '../../../services/homepage.service';
 
 @Component({
   selector: 'app-songslider',
@@ -6,26 +7,46 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./songslider.component.scss']
 })
 export class SongsliderComponent {
-  
-  slides = [
-    {img: "/assets/image/shiv.jpg", song_name : 'dill ne'},
-    {img: "/assets/image/bhakti-song.jpg", song_name : 'dill ne'},
-    {img: "/assets/image/gym.webp", song_name : 'workout'},
-    {img: "/assets/image/shiv.jpg", song_name : 'dill ne'},
-    {img: "/assets/image/bhakti-song.jpg", song_name : 'bhakti'},
-    {img: "/assets/image/shiv.jpg", song_name : 'shiv dhun'},
-    {img: "/assets/image/bhakti-song.jpg", song_name : 'bhakti song'},
-    {img: "/assets/image/gym.webp", song_name : 'workout'},
-  ];
-  artists = [
-    {img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
-    {img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
-    {img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
-    {img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
-    {img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
-    {img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
-    {img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
-  ];
+  artists : any = {};
+  slides:any = {};
+  constructor(private homeservice:HomepageService){
+  }
+  ngOnInit(){
+    this.displayartist();
+    this.displaysongs();
+  } 
+  displayartist(){
+    this.homeservice.artistlist().subscribe((data) => this.receiveartist(data) );
+  }
+  receiveartist(data:any){
+     this.artists =  (data.data.data);
+  }
+
+  displaysongs(){
+    this.homeservice.songlist().subscribe((data) => this.receivesongs(data) );
+  }
+  receivesongs(data:any){
+     this.slides =  (data.data.data);
+  }
+  // slides = [
+  //   {id:1, img: "/assets/image/shiv.jpg", song_name : 'dill ne'},
+  //   {id:1, img: "/assets/image/bhakti-song.jpg", song_name : 'dill ne'},
+  //   {id:1, img: "/assets/image/gym.webp", song_name : 'workout'},
+  //   {id:1, img: "/assets/image/shiv.jpg", song_name : 'dill ne'},
+  //   {id:1, img: "/assets/image/bhakti-song.jpg", song_name : 'bhakti'},
+  //   {id:1, img: "/assets/image/shiv.jpg", song_name : 'shiv dhun'},
+  //   {id:1, img: "/assets/image/bhakti-song.jpg", song_name : 'bhakti song'},
+  //   {id:1, img: "/assets/image/gym.webp", song_name : 'workout'},
+  // ];
+  // artists = [
+  //   {id:1, img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
+  //   {id:1, img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
+  //   {id:1, img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
+  //   {id:1, img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
+  //   {id:1, img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
+  //   {id:1, img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
+  //   {id:1, img: "/assets/image/artist_1.webp", song_name : 'Arijit Singh'},
+  // ];
   slideConfigbanner = {
     infinite: true,
      slidesToShow: 1,

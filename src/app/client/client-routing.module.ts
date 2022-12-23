@@ -4,7 +4,7 @@ import { FooterComponent } from './component/footer/footer.component';
 
 
 import { ProfileComponent } from './component/profile/profile.component';
-import { SongdetailComponent } from './component/songdetail/songdetail.component';
+
 import { SongsliderComponent } from './component/songslider/songslider.component';
 import { SubscribeComponent } from './component/subscribe/subscribe.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './component/header/header.component';
 import { MainsectionComponent } from './component/mainsection/mainsection.component';
 import { SongboxComponent } from './pages/songbox/songbox.component';
+import { SongdetailComponent } from './component/songdetail/songdetail.component';
 
 const routes: Routes = [
 
@@ -20,17 +21,16 @@ const routes: Routes = [
 {path:'',component:HomeComponent,children:[
   {path:'', redirectTo:'mainsecion',pathMatch:'full'},
   {path:'mainsecion',component:MainsectionComponent},
-  {path:'songbox',component:SongboxComponent},
+  {path:'songslider',component:SongsliderComponent},
+  {path:'songbox/:id',component:SongboxComponent},
   {path:'profile',component:ProfileComponent,
   children: [
-    {path:'subscribe',component:SubscribeComponent}
+    {path:'subscribe',component:SubscribeComponent},
+    {path:'', redirectTo:'subscribe',pathMatch:'full'},
   ]
 },
 ]},
-{path:'header',component:HeaderComponent},
-{path:'footer',component:FooterComponent},
-{path:'songslider',component:SongsliderComponent},
-{path:'songdetail',component:SongdetailComponent},
+
 {path:'login',component:LoginComponent},
 {path:'register',component:RegristerComponent},
 

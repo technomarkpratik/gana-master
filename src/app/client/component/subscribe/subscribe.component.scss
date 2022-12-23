@@ -1,0 +1,20 @@
+.subscription{
+    // background:url('../assets/image/subscription.png');
+    background-image: url("/assets/image/subscription.png");
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    color: #fff;
+    margin-top: 30px;
+    text-align: right;
+    padding: 20px;
+    h4{
+        margin-bottom: 30px;
+
+    }
+    .radiobtn {
+        label{
+            margin-right: 20px;
+        }
+    }
+}

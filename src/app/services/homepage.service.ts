@@ -14,5 +14,11 @@ export class HomepageService {
   songlist(){    
     return this.http.get(this.serverurl + '/v1/music',this.httpOptions);
   }
-
+  songlis(id:any){    
+    return this.http.get(this.serverurl + '/v1/music/'+ id,this.httpOptions);
+  }
+  artistlist(){    
+    return this.http.get(this.serverurl + '/v1/artists',this.httpOptions);
+  }
+  
 }

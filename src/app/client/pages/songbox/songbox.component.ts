@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HomepageService } from 'src/app/services/homepage.service';
 
 @Component({
   selector: 'app-songbox',
@@ -6,53 +8,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./songbox.component.scss']
 })
 export class SongboxComponent {
-  songdetail = [
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },    
-  ]
-  slides = [
-    {img: "/assets/image/shiv.jpg", song_name : 'dill ne'},
-    {img: "/assets/image/bhakti-song.jpg", song_name : 'dill ne'},
-    {img: "/assets/image/gym.webp", song_name : 'workout'},
-    {img: "/assets/image/shiv.jpg", song_name : 'dill ne'},
-    {img: "/assets/image/bhakti-song.jpg", song_name : 'bhakti'},
-    {img: "/assets/image/shiv.jpg", song_name : 'shiv dhun'},
-    {img: "/assets/image/bhakti-song.jpg", song_name : 'bhakti song'},
-    {img: "/assets/image/gym.webp", song_name : 'workout'},
-  ];
+  id:number | undefined;
+  songs:any = {};
+  orders: any = {};
+  slides : any = {};
+  constructor(router: ActivatedRoute,private homeservice:HomepageService,
+) {
+    router.paramMap.subscribe(params => {
+      this.id = router.snapshot.params['id'];
+      this.ngOnInit();      
+  });
+  }  
+  ngOnInit(){   
+    this.orders = this.displaysongs();
+    this.displayslider();
+  }
+  displaysongs(){
+    this.homeservice.songlis(this.id).subscribe((data) => this.receivesongs(data) );
+  }
+  receivesongs(data:any){
+     this.songs =  (data.data);
+  }
+
   slideConfig = {  infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -75,5 +52,10 @@ export class SongboxComponent {
       },
     ]
   };
-
+  displayslider(){
+    this.homeservice.songlist().subscribe((data) => this.slideresponse(data) );
+  }
+  slideresponse(data:any){
+     this.slides =  (data.data.data);
+  }
 }

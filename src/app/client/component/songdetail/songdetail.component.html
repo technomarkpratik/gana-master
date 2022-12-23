@@ -6,7 +6,7 @@
             </div>
             <div class="detail">
                 <div class="song_name">
-                    <small>Rate Lambiya</small>
+                    <small>Rate Lambiya {{songs.title}}</small>
                 </div>
                 <div class="artist_name">
                     <small>Arjit Sing</small>
@@ -27,16 +27,16 @@
         </div>
     </div>
     <ul>
-        <li class="song_detail" *ngFor="let song of songdetail">               
+        <li class="song_detail" *ngFor="let song of songqueue">               
                 <div class="song_img">
-                <img [src]="song?.img" alt="">
+                <img [src]="song?.image_path" alt="">
                 </div>
                 <div class="detail">
                 <div class="song_name">
                     <small>{{song.title}}</small>
                 </div>
                 <div class="artist_name">
-                    <small>{{song.artist}}</small>
+                    <small>{{song.category.name}}</small>
                 </div>
                 </div>               
         </li>

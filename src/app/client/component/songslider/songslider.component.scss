@@ -19,12 +19,14 @@ body .slick-next {
       a{
         color: #000;
         text-decoration: none;
-        display: inline-block;
+        display: block;
         width: 100%;
+        
       }
       .song_image{
         height: 100%;
         width: 100%;
+        background-color: #f5f5f5;
         box-shadow: 4px 4px 7px 0 rgb(0 0 0 / 15%);
       }
     }
@@ -74,4 +76,9 @@ body .slick-next {
 
 .song_types_title{
     font-size: 24px;
+}
+.homebanner{
+.song_image{
+    height: 350px !important;
+}
 }

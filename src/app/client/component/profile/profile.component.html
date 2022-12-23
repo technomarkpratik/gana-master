@@ -1,33 +1,76 @@
 
-<router-outlet></router-outlet>
+
 <div class="my_prof_sec">
+    
+      
     <div class="prof_box">
         <div class="user_img">
         <img src="../assets/image/user.jpg" alt="">
     </div>
     <h3 class="user_name">{{your_profile_data.first_name}}</h3>
-   <table class="table table-bordered">
-    <tr>
-        <th>id</th>
-        <th>first name</th>
-        <th>first last</th>
-        <th>email</th>
-        <th>phone number</th>
-        <th>subscription type</th>
-    </tr>
-    <tr>
-        <td>{{your_profile_data.id}}</td>
-        <td>{{your_profile_data.first_name}}</td>
-        <td>{{your_profile_data.last_name}}</td>
-        <td>{{your_profile_data.email}}</td>
-        <td>{{your_profile_data.phone_number}}</td>
-        <td>{{your_profile_data.subscription_type}}</td>
-        
-    </tr>
-   </table>
-     
-   
 
-        <a routerLink="subscribe">Subscription</a>
-    </div>
+ 
+            <form [formGroup]="updateprofile" (ngSubmit)="updateprof(updateprofile)">
+                <div class="inputBox form-group mb-3">
+                    <input type="text" id="first_name" name="first_name" [(ngModel)]="your_profile_data.first_name" formControlName="first_name" placeholder="please enter your first_name" class="form-control"/>
+                    <!-- <label><i class="fa fa-user"></i> MobileNo</label> -->
+                    <span class="text-danger" *ngIf="!first_name?.valid && (first_name?.touched || first_name?.dirty)" >
+                        Please enter your first name
+                     </span>
+                 </div>
+                 <div class="inputBox form-group mb-3">
+                    <input type="text" id="last_name" name="last_name" formControlName="last_name" [(ngModel)]="your_profile_data.last_name" placeholder="please enter your last_name" class="form-control"/>
+                    <!-- <label><i class="fa fa-user"></i> MobileNo</label> -->
+                    <span class="text-danger" *ngIf="!last_name?.valid && (last_name?.touched || last_name?.dirty)" >
+                        Please enter your last name
+                     </span>
+                 </div>
+                 <div class="inputBox form-group mb-3">
+                    <input type="text" id="phone_number" name="phone_number" formControlName="phone_number" [(ngModel)]="your_profile_data.phone_number" placeholder="please enter your phone_number" class="form-control"/>
+                    <!-- <label><i class="fa fa-eye" aria-hidden="true"></i> phone_number</label>  -->
+                    <span class="text-danger" *ngIf="!phone_number?.valid && (phone_number?.touched || phone_number?.dirty)" >
+                        Please enter your mobileno
+                     </span>
+                 </div>
+              <!-- <div class="inputBox form-group mb-3">
+                 <input type="text"  name="email" formControlName="email" [(ngModel)]="your_profile_data.email" placeholder="please enter your email" class="form-control"/>
+ 
+                 <span class="text-danger" *ngIf="!email?.valid && (email?.touched || email?.dirty)" >
+                     Please enter your email id
+                  </span>
+              </div> -->
+        
+             <!-- <div class="radiobtn mb-3">
+              <label><i class="fa fa-transgender" aria-hidden="true"></i>&nbsp; Gender : </label>
+              <label><input type="radio" name="subscription_type" id="subscription_type" formControlName="subscription_type" [(ngModel)]="your_profile_data.subscription_type"  value="1"/> Premium </label>
+              <label><input type="radio" name="subscription_type" id="subscription_type" formControlName="subscription_type" [(ngModel)]="your_profile_data.subscription_type" value="2"/> VIP  </label>
+              <label><input type="radio" name="subscription_type" id="subscription_type" formControlName="subscription_type" [(ngModel)]="your_profile_data.subscription_type" value="3"/> Free </label>
+              <div class="text-danger" *ngIf="!subscription_type?.valid && (subscription_type?.touched || subscription_type?.dirty)">
+                 please select any one 
+               </div>
+            </div> -->
+              <!-- <div class="inputBox mb-3">
+                <input type="file" name="imgpath" id="imgpath" formControlName="imgpath" [(ngModel)]="data" />
+                <label for="fullname"><i class="fa fa-user"></i>&nbsp; SRC :</label>
+                <div class="text-danger" *ngIf="!imgpath?.valid && (imgpath?.touched || imgpath?.dirty)">
+                   please enter your profile
+                 </div>
+             </div> -->
+              <button type="login" class="btn btn-danger btn-block mb-3" [disabled]="!updateprofile.valid"> Save Changes </button>
+             <hr>
+              <div class="go_regster">
+                <!-- Aleardy regristered ?<br>
+              <a routerLink="" title="Sign Up"> Login </a><br> -->
+              <div class="go_regster"><a routerLink="" title="Sign Up" > Back To Home</a></div>
+           </div>
+           </form>
+          </div>
+
+      <!-- <ul *ngFor="let s of storeregdata">
+        <li>{{s.id}}</li>
+      </ul> -->
+      <!-- <a routerLink="subscribe">Subscription</a> -->
+      <router-outlet></router-outlet>
+        
+
 </div>
