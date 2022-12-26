@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, NgForm, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from 'src/app/services/notification.service';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -12,7 +14,8 @@ import { AuthService } from '../../../services/auth.service';
 export class LoginComponent {
   loginform !:FormGroup;
 
-  constructor(private formbuilder:FormBuilder, private service:AuthService,private router:Router,private http:HttpClient){}
+  constructor(private formbuilder:FormBuilder, private service:AuthService,
+    private router:Router,private http:HttpClient,private toster:NotificationService,private toast:ToastrService){}
  
   ngOnInit(): void {
     this.loginform = this.formbuilder.group({
@@ -29,15 +32,18 @@ export class LoginComponent {
   public error = null;
   handleError(error:any) {
     this.error = error.error.errors;
+    this.showerror();
   }
- 
+  showerror(){
+    this.toster.showError("somethong went to wrong please try again","");
+  }
 
   loginsuccessdata: object = {};
   logindata(loginform:any){  
- console.log(this.loginform.value);
  
  this.service.loginservice(loginform.value).subscribe(
   (response) => this.das(response), 
+  error => this.handleError(error),
    )
   
  }

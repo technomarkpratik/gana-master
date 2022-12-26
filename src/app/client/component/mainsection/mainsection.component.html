@@ -6,33 +6,39 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">All</a>
+            <a class="nav-link active" routerLink="/">All</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Trending songs</a>
+            <a class="nav-link" routerLink="/home/mainsecion/newrelease">New release</a>
           </li>
-          <li class="nav-item dropdown">
-             <a class="nav-link dropdown-toggle" href="aboutus.html">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home/mainsecion/trandingsong">Trending songs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home/mainsecion/featuredartists">featured artists</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" routerLink="featuredartists">
                New Songs                       
              </a>                
-             <!-- <button class="menu_toggle_btn"><i class="fa-solid fa-chevron-down"></i></button>
+             <button class="menu_toggle_btn"><i class="fa-solid fa-chevron-down"></i></button>
              <ul class="dropdown-menu">
                <li><a class="dropdown-item" href="#">Action</a></li>
                <li><a class="dropdown-item" href="#">Another action</a></li>
                <li><a class="dropdown-item" href="#">Something else here</a></li>             
-             </ul> -->
-           </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">old songs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Artists</a>
-          </li>
-         
+             </ul>
+           </li> -->        
         </ul>
       </div>
     </div>
 </nav>
 <div class="slider_section">
-<app-songslider></app-songslider>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9">
+        <router-outlet></router-outlet>
+  </div>
+  <div class="col-md-3"></div>
+  </div>
+  </div>
 </div>

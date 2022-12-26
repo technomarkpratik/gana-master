@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HomepageService } from 'src/app/services/homepage.service';
 
 @Component({
@@ -11,25 +11,34 @@ export class SongboxComponent {
   id:number | undefined;
   songs:any = {};
   orders: any = {};
-  slides : any = {};
-  constructor(router: ActivatedRoute,private homeservice:HomepageService,
+  dataid :number| undefined;
+  text="";
+  constructor(router: ActivatedRoute,private homeservice:HomepageService,private route:Router
 ) {
     router.paramMap.subscribe(params => {
       this.id = router.snapshot.params['id'];
-      this.ngOnInit();      
+      this.displaysongs();        
   });
-  }  
+  } 
   ngOnInit(){   
-    this.orders = this.displaysongs();
-    this.displayslider();
-  }
-  displaysongs(){
-    this.homeservice.songlis(this.id).subscribe((data) => this.receivesongs(data) );
-  }
-  receivesongs(data:any){
-     this.songs =  (data.data);
+  // this.displaysongs();  
   }
 
+  displaysongs(){
+    this.homeservice.songlis(this.id).subscribe((data) => this.receivesongs(data) );   
+  }
+  receivesongs(data:any){
+     this.songs =  (data.data);   
+  }
+
+  submit(id:any){  
+   this.homeservice.updatedata(id);
+  console.log("songbox send id : "+ id);
+  }
+ 
+  updateText(text:string){
+    this.homeservice.updatedata(text);
+  }
   slideConfig = {  infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -52,10 +61,4 @@ export class SongboxComponent {
       },
     ]
   };
-  displayslider(){
-    this.homeservice.songlist().subscribe((data) => this.slideresponse(data) );
-  }
-  slideresponse(data:any){
-     this.slides =  (data.data.data);
-  }
 }

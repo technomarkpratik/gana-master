@@ -17,7 +17,7 @@
                    </span>
                </div>
                <div class="inputBox form-group mb-3">
-                  <input type="text" id="phone_number" name="phone_number" formControlName="phone_number" placeholder="please enter your phone_number" class="form-control"/>
+                  <input type="number" id="phone_number" name="phone_number" formControlName="phone_number" placeholder="please enter your phone_number" class="form-control"/>
                   <!-- <label><i class="fa fa-eye" aria-hidden="true"></i> phone_number</label>  -->
                   <span class="text-danger" *ngIf="!phone_number?.valid && (phone_number?.touched || phone_number?.dirty)" >
                       Please enter your mobileno

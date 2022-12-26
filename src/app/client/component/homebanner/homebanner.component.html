@@ -1,0 +1,10 @@
+<div *ngIf="slides.length < 1 && !isfeatching">no slider</div>
+  <ngx-slick-carousel class="carousel homebanner" #slickModal="slick-carousel" [config]="slideConfigbanner" *ngIf="slides.length > 1 && !isfeatching">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <div class="box">
+        <a [routerLink]="['/home/songbox',slide.id]">
+       <img src="{{ slide.image_path }}" alt="" width="100%"  class="song_image"/>
+    </a>
+      </div>     
+    </div>
+  </ngx-slick-carousel><p *ngIf="isfeatching">....loading</p>

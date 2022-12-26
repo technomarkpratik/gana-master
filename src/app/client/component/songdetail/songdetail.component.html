@@ -6,10 +6,10 @@
             </div>
             <div class="detail">
                 <div class="song_name">
-                    <small>Rate Lambiya {{songs.title}}</small>
+                    <small>{{songlists.title}} </small>
                 </div>
                 <div class="artist_name">
-                    <small>Arjit Sing</small>
+                    <small>{{songlists.category.name}}</small>
                 </div>
             </div>
         <div class="audio">
@@ -50,11 +50,12 @@
 </div>
 <div class="detail">
     <div class="song_name">
-        <small>Rate Lambiya</small>
+        <small>{{songlists.title}} {{text}}</small>
     </div>
     <div class="artist_name">
-        <small>Arjit Sing</small>
+        <small>{{songlists.category.name}}</small>
     </div>
+    
 </div>
 </div>
 <div class="audio">
@@ -62,6 +63,7 @@
 <p>Fallback content goes here.</p>
 </audio>
 </div>
+
 <div class="top_aerrow" (click) = "checkVisited()">
 <i class="fa-solid fa-angle-up"></i>
 </div>

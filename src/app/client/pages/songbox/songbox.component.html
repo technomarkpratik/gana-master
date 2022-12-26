@@ -15,7 +15,11 @@
                             <div class="artist_name">
                                 <small>{{songs.category.name}}</small>
                             </div>
-                            <p> <a  class="btn btn-danger">Play song</a></p>
+                            <p> <a  class="btn btn-danger"  
+                                (click)="submit(songs.id)"
+                                >Play song</a></p>
+                               
+                                <!-- [routerLink]="['/home/songdetail',songs.id]" -->
                         </div>
                 </div>
                 <div class="artist_name">

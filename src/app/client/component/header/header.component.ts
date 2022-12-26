@@ -15,26 +15,30 @@ export class HeaderComponent {
   songs:any = {};
   userdata: any = {};
   search_filter: any;
-  @Input() id:string | undefined;
-
+  isfeatching = false;
   accesstoken = window.localStorage.getItem("accesstoken");
-
+abcd !: number;
   constructor(private homeservice:HomepageService,private service:AuthService, private elem: ElementRef, private router:Router){
     this.userdata = window.localStorage.getItem("userdata");
     if(this.userdata){
       this.loging_s = 'inline-block' ;
       this.login_p = 'none'; 
     } 
+    
   } 
   ngOnInit(){
     this.displaysongs();
   } 
+  saveid(id:string){
+  
+    localStorage.setItem('idkeys', id)
+    console.log(localStorage.getItem('idkeys'));
+  }
   logout(){
     console.log(this.userdata);
     if(window.confirm("are you sure want to logout")){
       this.service.logout_data().subscribe(data => console.log(data));
       localStorage.clear();
-      // window.location.reload();
       this.loging_s = 'none' ;
       this.login_p = 'inline-block'; 
       this.router.navigate(['']);
@@ -48,9 +52,14 @@ export class HeaderComponent {
 
 
   displaysongs(){
-    this.homeservice.songlist().subscribe((data) => this.receivesongs(data) );
+    this.isfeatching = true ;
+    this.homeservice.songlist().subscribe((data) => {
+      this.isfeatching = false ;
+      this.receivesongs(data)} );
+     
   }
   receivesongs(data:any){
      this.songs =  (data.data.data);
+     
   }
 }

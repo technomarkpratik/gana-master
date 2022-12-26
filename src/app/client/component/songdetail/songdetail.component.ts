@@ -8,32 +8,44 @@ import { HomepageService } from 'src/app/services/homepage.service';
   styleUrls: ['./songdetail.component.scss']
 })
 export class SongdetailComponent {
+  
   public toggle_play = false;
   public toggle_play_sticky = false;
-  id:number | undefined;
-  songs:any = {};
+  id !:number ;
+  songlists!:any;
   songqueue:any = {};
-  orders: any = {};
+  list: any = {};
+// ids = localStorage.getItem('ids');
+ids !: any;
+test !: string;
+text = "";
   constructor(router: ActivatedRoute,private homeservice:HomepageService,
     ) {
-    router.paramMap.subscribe(params => {
-      this.id = router.snapshot.params['id'];
-      this.ngOnInit();      
-  });
+  this.ngOnInit();  
   }  
   ngOnInit(){   
-    this.orders = this.displaysongs();
-    this.displaysong();
+
+   this.displaysonglist();
+   this.displaysong();
   }
-  displaysongs(){
-    this.homeservice.songlis(this.id).subscribe((data) => this.receivesongs(data) );
+
+  displaysong(){
+    this.homeservice.share.subscribe(x => {
+      this.text = x,
+      // location.reload();
+    })
+    this.homeservice.songlis(this.text).subscribe((data:any) => this.receivelist(data) );
+    
   }
-  receivesongs(data:any){
-     this.songs =  (data.data);
+  receivelist(data:any){
+     this.songlists =  (data.data);
+     console.log("receive id : "+ this.songlists.id)
   }
- displaysong(){
+
+  displaysonglist(){
     this.homeservice.songlist().subscribe((data) => this.receive(data) );
   }
+
   receive(data:any){
      this.songqueue =  (data.data.data);
   }
@@ -41,42 +53,5 @@ public checkVisited() {
    this.toggle_play = !this.toggle_play;
    this.toggle_play_sticky = !this.toggle_play_sticky;
 }
-  songdetail = [
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },
-    {
-      img :'../assets/image/user.jpg',
-      title: 'rate lambiya',
-      artist : 'arjit sing'
-    },    
-  ]
 
 }

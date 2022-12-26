@@ -12,14 +12,15 @@
      aria-label="Recipient's username" aria-describedby="button-addon2" (focus)="opensearch()" data-bs-toggle="modal" data-bs-target="#model2">
   </div>
  
-  <div class="search_box_inner" [class.visited] = "open_search == true">
+  <div class="search_box_inner" [class.visited] = "open_search == true" *ngIf="(songs.length > 1 && !isfeatching)">
+    <span *ngIf="isfeatching">...Loading</span>   
     <ul>
       <li class="song_detail" *ngFor="let song of songs | filter:search_filter "> 
-                   
+                
               <div class="song_img">
               <img [src]="song?.image_path" alt="">
               </div>
-              <a [routerLink]="['songbox',song.id]" > 
+              <a [routerLink]="['songbox',song.id]" (click)="saveid(song.id)"> 
               <div class="detail">
               <div class="song_name">
                   <small>{{song.title}}</small>
@@ -31,12 +32,9 @@
             </a>                
       </li>
   </ul>
-  </div>
-  </div>
-  <!-- <ng2-completer [(ngModel)]="search_filter" ></ng2-completer>
-            
-            <ng2-completer [(ngModel)]="search_filter" ></ng2-completer>`
- </div> -->
+ 
+  </div><ng-template #thanblock>Data is not available</ng-template>
+  </div> 
  <div class="login_box">
   <a title="profile" [ngClass]="['profile']" [ngStyle]="{'display': loging_s}">
     <img src="../assets/image/user.jpg" alt="" data-bs-toggle="dropdown" aria-expanded="false">

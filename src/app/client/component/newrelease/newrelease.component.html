@@ -1,0 +1,14 @@
+<h2 class="song_types_title">New Releases</h2>
+<div *ngIf="slides.length < 1 && !isfeatching">no slider</div>
+<ngx-slick-carousel class="carousel main_sub_slider" #slickModal="slick-carousel" [config]="slideConfig" *ngIf="slides.length > 1 && !isfeatching">
+  <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+    <div class="box">
+      <a [routerLink]="['/home/songbox',slide.id]">
+    <img src="{{ slide.image_path }}" alt="" width="100%"  class="song_image"/>
+    <div class="t_wrap">
+      {{slide.title}}
+    </div>
+  </a>
+  </div>
+  </div>
+</ngx-slick-carousel><p *ngIf="isfeatching">....loading</p>

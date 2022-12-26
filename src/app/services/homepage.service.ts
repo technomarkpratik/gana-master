@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { BehaviorSubject} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +10,17 @@ export class HomepageService {
     httpOptions = {
       headers: new HttpHeaders({'Accept': 'application/json',"Authorization": "Bearer "+ this.accesstoken})
     };
-  constructor(private http:HttpClient) { }
+
+    private content = new BehaviorSubject<string>('1');
+    public share = this.content.asObservable();
+    updatedata(text: string){
+      this.content.next(text);
+ 
+    }
+
+  constructor(private http:HttpClient) {
+    
+   }
   songlist(){    
     return this.http.get(this.serverurl + '/v1/music',this.httpOptions);
   }
